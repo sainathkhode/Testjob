@@ -20,8 +20,8 @@ jobs:
     - name: upload artifacts
       uses: actions/upload-artifact@v4
       with:
-      name: vprofile-app
-      path: target/*.war
+       name: vprofile-app
+       path: target/*.war
     - name: notify if build is fail
       if: failure()
       run: echo "Build job is failed! Please check logs"
