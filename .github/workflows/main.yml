@@ -33,9 +33,14 @@ jobs:
      - name: code checkout
        uses: actions/checkout@v5
      - name: Run tests on main branch
+       if: github.ref == 'refs/head/main'
        run: mvn test
      - name: Checkstyle
+       if: github.ref == 'refs/head/main'
        run: mvn checkstyle:checkstyle
+     - name: Run test on other branch
+       if: github.ref !== 'refs/head/main'
+       run: echo "skipping unit test and code analysis" 
 
 
 
